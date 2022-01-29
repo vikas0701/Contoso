@@ -18,6 +18,11 @@ var onDefault=function(req, res){
 };
 app.get("/",onDefault);  
 app.get("/aboutus",onAboutUs);  
+
+app.all('*',function(req,res){
+    res.sendfile(__dirname+"/index.html");
+});
+
 var server=app.listen(8081);
 console.log("Server is running on port 8081");
 
